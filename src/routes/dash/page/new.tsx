@@ -1,9 +1,10 @@
 import { Button, TextField } from "@suid/material"
 import { Component, createSignal } from "solid-js"
 import { useNavigate } from "solid-start"
+import { protectedRoute } from "~/utils/session"
 import { trpc } from "~/utils/trpc"
 
-const NewPagePage: Component = () => {
+export const [routeData, NewPagePage] = protectedRoute(() => {
 	const [content, setContent] = createSignal("")
 	const [title, setTitle] = createSignal("")
 	const navigate = useNavigate()
@@ -38,6 +39,6 @@ const NewPagePage: Component = () => {
 			</Button>
 		</>
 	)
-}
+})
 
 export default NewPagePage

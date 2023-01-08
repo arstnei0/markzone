@@ -6,6 +6,8 @@ import {
 	getUserIdFromSession,
 } from "../utils"
 import { prisma } from "../../db/client"
+import { transformMarkdown } from "~/lib/markdown"
+import { TRPCError } from "@trpc/server"
 
 export default router({
 	new: protectedProcedure
@@ -32,5 +34,23 @@ export default router({
 				userId: await getUserIdFromSession(ctx.session),
 			},
 		})
+	}),
+	public: procedure.input(z.number()).query(async ({ input }) => {
+		const page = await prisma.page.findUnique({
+			where: {
+				id: input,
+			},
+		})
+
+        if (!page) {
+            throw new TRPCError({
+                code: "NOT_FOUND",
+                message: "Page not found!"
+            })
+        }
+        
+        page.content = await transformMarkdown(page.content)
+
+        return page
 	}),
 })

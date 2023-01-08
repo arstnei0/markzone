@@ -9,7 +9,10 @@ export const Pages: Component = () => {
 			<Show
 				when={pages.isLoading}
 				fallback={pages.data?.map((page) => (
-					<p>{page.title}</p>
+					<>
+						<p>{page.title}</p>
+						<p>{page.id}</p>
+					</>
 				))}
 			>
 				<></>
