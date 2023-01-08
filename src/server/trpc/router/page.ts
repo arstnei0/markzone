@@ -15,15 +15,18 @@ export default router({
 			z.object({
 				content: z.string(),
 				title: z.string(),
+                theme: z.string().default('default'),
 			})
 		)
 		.mutation(async ({ ctx, input }) => {
 			const userId = await getUserIdFromSession(ctx.session)
 
-			return prisma.page.create({
+			return await prisma.page.create({
 				data: {
 					content: input.content,
 					title: input.title,
+                    theme: input.theme,
+                    transformed: await transformMarkdown(input.content),
 					userId,
 				},
 			})
@@ -49,8 +52,6 @@ export default router({
             })
         }
         
-        page.content = await transformMarkdown(page.content)
-
         return page
 	}),
 })

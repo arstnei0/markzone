@@ -8,7 +8,7 @@ const PublicPage: Component = () => {
 
     return <><Show when={page.isLoading} fallback={<>
         <h1>{page.data?.title}</h1>
-        <div innerHTML={page.data?.content}></div>
+        <div innerHTML={page.data?.transformed}></div>
     </>}>
 
     </Show></>

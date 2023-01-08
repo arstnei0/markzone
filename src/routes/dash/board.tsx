@@ -1,9 +1,7 @@
-import type { Component } from "solid-js"
 import { Dashboard } from "~/component/Dashboard"
-import { protectedRoute } from "~/utils/session"
+import { withDash } from "~/utils/dash"
 
-export const [routeData, DashboardPage] = protectedRoute((props) => {
-    console.log('run')
+export const [routeData, DashboardPage] = withDash((props) => {
 	return (
 		<>
 			<Dashboard user={props.session.user} />

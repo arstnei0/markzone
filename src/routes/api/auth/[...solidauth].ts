@@ -15,6 +15,8 @@ export const authOpts: SolidAuthConfig = {
 			clientId: serverEnv.GITHUB_ID,
 			clientSecret: serverEnv.GITHUB_SECRET,
 		}),
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore types error
 		Google({
 			clientId: serverEnv.GOOGLE_ID,
 			clientSecret: serverEnv.GOOGLE_SECRET,
