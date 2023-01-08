@@ -6,8 +6,9 @@ import {
 	getUserIdFromSession,
 } from "../utils"
 import { prisma } from "../../db/client"
-import { transformMarkdown } from "~/lib/markdown"
 import { TRPCError } from "@trpc/server"
+import { ThemeName } from "~/theme/theme"
+import { transformMarkdown } from "~/lib/markdown"
 
 export default router({
 	new: protectedProcedure
@@ -15,7 +16,7 @@ export default router({
 			z.object({
 				content: z.string(),
 				title: z.string(),
-                theme: z.string().default('default'),
+                theme: ThemeName,
 			})
 		)
 		.mutation(async ({ ctx, input }) => {
@@ -26,7 +27,7 @@ export default router({
 					content: input.content,
 					title: input.title,
                     theme: input.theme,
-                    transformed: await transformMarkdown(input.content),
+                    transformed: await transformMarkdown(input.content, input.theme),
 					userId,
 				},
 			})
