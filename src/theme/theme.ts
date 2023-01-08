@@ -9,6 +9,9 @@ export const Theme = z.object({
 		theme: z.string().default("one-dark-pro"),
 	}),
 	name: z.string(),
+    css: z.object({
+        files: z.array(z.string()).default([])
+    }),
 })
 export type Theme = z.infer<typeof Theme>
 export type ThemeI = z.input<typeof Theme>
