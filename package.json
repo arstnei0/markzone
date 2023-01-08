@@ -1,0 +1,48 @@
+{
+	"name": "markzone",
+	"scripts": {
+		"dev": "solid-start dev",
+		"build": "solid-start build && pnpm postbuild",
+		"start": "solid-start start",
+		"lint": "eslint --fix \"**/*.{ts,tsx,js,jsx}\"",
+		"push": "prisma db push",
+		"postinstall": "prisma generate",
+		"postbuild": "cp node_modules/.pnpm/**/**/prisma/*engine*.node .vercel/output/functions/render.func/ && cp prisma/schema.prisma .vercel/output/functions/render.func/",
+		"format": "prettier -w ."
+	},
+	"type": "module",
+	"devDependencies": {
+		"@types/node": "^18.11.18",
+		"@typescript-eslint/eslint-plugin": "^5.42.1",
+		"@typescript-eslint/parser": "^5.42.1",
+		"eslint": "^8.27.0",
+		"eslint-plugin-solid": "^0.8.0",
+		"prisma": "^4.6.1",
+		"solid-start-node": "^0.2.11",
+		"solid-start-vercel": "^0.2.11",
+		"typescript": "^4.8.3",
+		"vite": "^3.1.0"
+	},
+	"dependencies": {
+		"@auth/core": "^0.2.4",
+		"@auth/solid-start": "^0.1.0",
+		"@next-auth/prisma-adapter": "^1.0.5",
+		"@prisma/client": "^4.6.1",
+		"@solidjs/meta": "^0.28.2",
+		"@solidjs/router": "^0.6.0",
+		"@suid/icons-material": "^0.5.5",
+		"@suid/material": "^0.9.1",
+		"@tanstack/solid-query": "^4.15.1",
+		"@trpc/client": "^10.1.0",
+		"@trpc/server": "^10.1.0",
+		"solid-js": "^1.5.7",
+		"solid-start": "^0.2.11",
+		"solid-start-trpc": "^0.0.16",
+		"solid-trpc": "^0.0.11-rc.2",
+		"undici": "5.11.0",
+		"zod": "^3.19.1"
+	},
+	"engines": {
+		"node": ">=16"
+	}
+}
