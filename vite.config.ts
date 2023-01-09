@@ -9,6 +9,6 @@ export default defineConfig(() => {
 		build: {
 			rollupOptions: {},
 		},
-		ssr: { external: "@prisma/client" },
+		ssr: { noExternal: ["@prisma/client"] },
 	}
 })
