@@ -5,6 +5,7 @@ import { Link, useParams } from "solid-start"
 import { SITE_URL } from "~/config"
 import { themes } from "~/theme/themes"
 import { trpc } from "~/utils/trpc"
+import '~/styles/page.css'
 
 const PublicPage: Component = () => {
 	const pageId = parseInt(useParams().id)

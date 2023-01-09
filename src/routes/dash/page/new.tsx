@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, TextField } from "@suid/material"
 import { For, createSignal } from "solid-js"
 import { useNavigate } from "solid-start"
 import type { ThemeName } from "~/theme/theme"
@@ -20,13 +19,11 @@ export const [routeData, NewPagePage] = withDash(() => {
 
 	return (
 		<>
-			<TextField
+			<input
 				value={title()}
 				onChange={(e) => {
 					setTitle((e.target as any).value)
 				}}
-				variant="standard"
-				label="Page Title"
 			/>
 			<br />
 			<textarea
@@ -49,8 +46,7 @@ export const [routeData, NewPagePage] = withDash(() => {
 				</For>
 			</select>
 			<br />
-			<Button
-				variant="contained"
+			<button
 				onClick={() => {
 					newPage.mutate({
 						content: content(),
@@ -60,7 +56,7 @@ export const [routeData, NewPagePage] = withDash(() => {
 				}}
 			>
 				Create
-			</Button>
+			</button>
 		</>
 	)
 })
