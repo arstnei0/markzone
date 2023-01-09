@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeName, Theme } from "./theme"
+import dreen from "./themes/dreen"
+import _default from "./themes/default"
 
-const themeFiles = await Promise.all(
-	Object.values(import.meta.glob("./themes/*/index.ts")).map((imp) => imp())
-)
+const themeFiles = [dreen, _default]
 
-export const themes: Record<ThemeName, Theme> = themeFiles
-	.map((themeExports: any) => themeExports.default)
-	.reduce(
-		(themes: any, theme: any) => ({ ...themes, [theme.name]: theme }),
-		{}
-	) as any
+export const themes: Record<ThemeName, Theme> = themeFiles.reduce(
+	(themes: any, theme: any) => ({ ...themes, [theme.name]: theme }),
+	{}
+) as any
