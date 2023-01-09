@@ -1,12 +1,11 @@
 import { defineTheme } from "../../define"
-import css from './theme.css'
 
 export default defineTheme({
-	name: "zihan",
+	name: "dreen",
 	shiki: {
-		theme: "dracula",
+		theme: "slack-dark",
 	},
     css: {
-        files: [css]
+        files: ['/src/theme/themes/dreen/theme.css']
     }
 })

@@ -4,7 +4,8 @@
 		"dev": "solid-start dev",
 		"build": "solid-start build && pnpm postbuild",
 		"start": "solid-start start",
-		"lint": "eslint --fix \"**/*.{ts,tsx,js,jsx}\"",
+		"lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
+		"lint:fix": "eslint fix \"**/*.{ts,tsx,js,jsx}\"",
 		"push": "prisma db push",
 		"postinstall": "prisma generate",
 		"postbuild": "cp node_modules/.pnpm/**/**/prisma/*engine*.node .vercel/output/functions/render.func/ && cp prisma/schema.prisma .vercel/output/functions/render.func/",
@@ -43,13 +44,13 @@
 		"remark-rehype": "^10.1.0",
 		"remark-toc": "^8.0.1",
 		"shiki": "^0.12.1",
-		"solid-js": "^1.5.7",
+		"solid-js": "^1.6.8",
 		"solid-start": "^0.2.11",
 		"solid-start-trpc": "^0.0.16",
 		"solid-trpc": "^0.0.11-rc.2",
 		"undici": "5.11.0",
 		"unified": "^10.1.2",
-		"zod": "^3.19.1"
+		"zod": "^3.20.2"
 	},
 	"engines": {
 		"node": ">=16"

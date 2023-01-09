@@ -1,10 +1,10 @@
 import { useParams } from "solid-start"
 import { withDash } from "~/utils/dash"
 
-export const [routeData, SuccessPage] = withDash((props) => {
+export const [routeData, SuccessPage] = withDash(() => {
 	const params = useParams()
 	const shareLink = `/page/${params.id}`
-    console.log(shareLink)
+	console.log(shareLink)
 
 	return (
 		<>

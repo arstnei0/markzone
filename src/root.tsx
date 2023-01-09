@@ -1,5 +1,4 @@
 // @refresh reload
-import "./root.css"
 import { Suspense } from "solid-js"
 import {
 	Body,

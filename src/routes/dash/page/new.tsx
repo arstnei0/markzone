@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, TextField } from "@suid/material"
-import { Component, createSignal, For } from "solid-js"
+import { For, createSignal } from "solid-js"
 import { useNavigate } from "solid-start"
-import { ThemeName, themeNames } from "~/theme/theme"
+import type { ThemeName } from "~/theme/theme"
+import { themeNames } from "~/theme/theme"
 import { withDash } from "~/utils/dash"
 import { trpc } from "~/utils/trpc"
 
@@ -11,7 +13,7 @@ export const [routeData, NewPagePage] = withDash(() => {
 	const [theme, setTheme] = createSignal<ThemeName>("default")
 	const navigate = useNavigate()
 	const newPage = trpc.page.new.useMutation({
-		onSuccess(data, variables, context) {
+		onSuccess(data) {
 			navigate(`/dash/success/${data.id}`)
 		},
 	})

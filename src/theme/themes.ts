@@ -1,4 +1,5 @@
-import { ThemeName, Theme } from "./theme"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ThemeName, Theme } from "./theme"
 
 const themeFiles = await Promise.all(
 	Object.values(import.meta.glob("./themes/*/index.ts")).map((imp) => imp())
