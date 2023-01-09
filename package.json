@@ -2,7 +2,7 @@
 	"name": "markzone",
 	"scripts": {
 		"dev": "solid-start dev",
-		"build": "solid-start build && pnpm postbuild",
+		"build": "pnpm postinstall && solid-start build && pnpm postbuild",
 		"start": "solid-start start",
 		"lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
 		"lint:fix": "eslint fix \"**/*.{ts,tsx,js,jsx}\"",

@@ -23,4 +23,5 @@ gitignore
 Thumbs.db
 
 .env
+.env.*
 pnpm-lock.yaml
