@@ -42,7 +42,7 @@
 		"remark-parse": "^10.0.1",
 		"remark-rehype": "^10.1.0",
 		"remark-toc": "^8.0.1",
-		"shiki": "^0.12.1",
+		"shiki": "^0.10.0",
 		"solid-js": "^1.6.8",
 		"solid-start": "^0.2.11",
 		"solid-start-trpc": "^0.0.16",
