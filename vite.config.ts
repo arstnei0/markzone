@@ -5,9 +5,9 @@ import vercel from "solid-start-vercel"
 
 export default defineConfig(() => {
 	return {
-		plugins: [solid({ ssr: true, adapter: vercel({ edge: false }) })],
-		build: {
-			rollupOptions: {},
+		plugins: [solid({ ssr: true })],
+		ssr: {
+			external: ["@prisma/client"],
 		},
 	}
 })
