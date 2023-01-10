@@ -25,3 +25,5 @@ Thumbs.db
 .env
 .env.*
 pnpm-lock.yaml
+
+prisma/client
