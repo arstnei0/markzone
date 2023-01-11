@@ -1,1 +1,1 @@
-export const SITE_URL = 'https://markzone.zihan.ga'
+export const SITE_URL = 'https://markzone.vercel.app'
