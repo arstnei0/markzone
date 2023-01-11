@@ -1,11 +1,12 @@
 import type { Component } from "solid-js"
 import { signIn } from "@auth/solid-start/client"
+import { Button } from "~/component/ui/Button"
 
 const LoginPage: Component = () => {
 	return (
 		<>
-			<button onClick={() => signIn("google")}>Login with Google</button>
-			<button onClick={() => signIn("github")}>Login with Github</button>
+			<Button onClick={() => signIn("google")}>Login with Google</Button>
+			<Button onClick={() => signIn("github")}>Login with Github</Button>
 		</>
 	)
 }
