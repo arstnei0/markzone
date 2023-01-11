@@ -1,0 +1,17 @@
+.list {
+    
+}
+
+.list-item {
+    transition: all .25s ease;
+    font-size: 1.08rem;
+}
+
+.list-item > div {
+    padding: .5rem 1rem;
+    margin: .4rem;
+}
+
+.list-item:hover {
+    transform: translateX(0.3rem);
+}

@@ -1,0 +1,23 @@
+@import "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Code:wght@300;400;600&display=swap";
+@import "./utils.css";
+@import "./var.css";
+
+:root {
+	--sans: "M PLUS Rounded 1c", sans-serif;
+	--serif: "Noto Serif", serif;
+	--mono: "Fira Code", monospace;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+* {
+	font-family: var(--sans);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

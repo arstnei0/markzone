@@ -1,0 +1,43 @@
+.textfield {
+	margin: 1rem 0 1rem 0;
+	max-width: 190px;
+	position: relative;
+    box-sizing: border-box;
+}
+
+.textfield input {
+	padding: 0.9rem;
+	outline: none;
+	border: 2px solid var(--c-primary);
+	background-color: transparent;
+	border-radius: var(--border-radius-l);
+	width: 100%;
+    transition: all .25s ease;
+}
+
+.textfield input:focus {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+}
+
+.textfield label {
+	font-size: 100%;
+	position: absolute;
+    top: 0;
+	left: 0;
+	margin: 0.8em;
+	margin-left: 1.3em;
+	pointer-events: none;
+	transition: all .3s ease;
+}
+
+.textfield :is(input:focus, input:not(:placeholder-shown)) ~ label {
+	transform: translateY(-50%) scale(1);
+	margin: 0em;
+	margin-left: 1.3em;
+	padding: 0.4em;
+    background-color: var(--c-bg);
+}
+
+.textfield :is(input:focus, input:not(:placeholder-shown)) {
+	border-color: var(--c-secondary);
+}

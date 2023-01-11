@@ -1,0 +1,17 @@
+#dashboard-home {
+	width: 60%;
+}
+
+#dashboard-home > * {
+	margin: 0.5rem;
+}
+
+#page-list-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#page-list-header > h2 {
+    font-size: 1.7rem;
+}

@@ -1,3 +1,12 @@
 body {
-    margin-bottom: 10rem;
+	margin-bottom: 10rem;
+	display: block;
+
+	position: relative;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 }

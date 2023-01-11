@@ -1,0 +1,14 @@
+select {
+    appearance: none;
+    border: solid 0.15rem var(--c-primary);
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    outline: none;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+select:hover {
+    border: solid 0.15rem var(--c-secondary);
+    background-color: var(--c-secondary-lighter);
+}

@@ -4,7 +4,6 @@ import { withDash } from "~/utils/dash"
 export const [routeData, SuccessPage] = withDash(() => {
 	const params = useParams()
 	const shareLink = `/page/${params.id}`
-	console.log(shareLink)
 
 	return (
 		<>
