@@ -9,7 +9,7 @@ export default defineConfig(() => {
 	return {
 		plugins: [solid({ ssr: true })],
 		ssr: {
-			external: ["@prisma/client", "dayjs"],
+			external: ["@prisma/client"],
 		},
 	}
 })

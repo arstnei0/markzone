@@ -36,6 +36,7 @@
 		"@tanstack/solid-query": "^4.22.0",
 		"@trpc/client": "^10.8.1",
 		"@trpc/server": "^10.8.1",
+		"dayjs": "^1.11.7",
 		"keyv": "^4.5.2",
 		"keyv-file": "^0.2.0",
 		"rehype-stringify": "^9.0.3",
