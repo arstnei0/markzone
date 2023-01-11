@@ -27,3 +27,5 @@ Thumbs.db
 pnpm-lock.yaml
 
 prisma/client
+
+*.tmp.*

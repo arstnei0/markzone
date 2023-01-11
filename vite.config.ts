@@ -7,7 +7,7 @@ import node from "solid-start-node"
 
 export default defineConfig(() => {
 	return {
-		plugins: [solid({ ssr: true, adapter: node() })],
+		plugins: [solid({ ssr: true })],
 		ssr: {
 			external: ["@prisma/client"],
 		},
