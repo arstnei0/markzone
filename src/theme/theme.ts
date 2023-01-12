@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const themeNames = ["default", "zihan", "dreen"] as const
+export const themeNames = ["default", "dreen"] as const
 export const ThemeName = z.enum(themeNames).default("default")
 export type ThemeName = z.infer<typeof ThemeName>
 

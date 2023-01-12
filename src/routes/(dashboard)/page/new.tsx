@@ -9,6 +9,7 @@ import type { ThemeName } from "~/theme/theme"
 import { themeNames } from "~/theme/theme"
 import { withDash } from "~/utils/dash"
 import { trpc } from "~/utils/trpc"
+import "~/styles/new.css"
 
 export const [routeData, NewPagePage] = withDash(() => {
 	const [content, setContent] = createSignal("")
@@ -43,21 +44,24 @@ export const [routeData, NewPagePage] = withDash(() => {
 						/>
 					</FormItem>
 					<FormItem>
-						<label for="theme">Choose a theme</label>
-                        <br />
-						<Select
-							value={theme()}
-							onChange={(e) => setTheme((e.target as any).value)}
-							id="theme"
-						>
-							<For each={themeNames}>
-								{(themeName) => (
-									<option value={themeName}>
-										{themeName}
-									</option>
-								)}
-							</For>
-						</Select>
+						<div class="field-with-label">
+							<label for="theme">Choose a theme</label>
+							<Select
+								value={theme()}
+								onChange={(e) =>
+									setTheme((e.target as any).value)
+								}
+								id="theme"
+							>
+								<For each={themeNames}>
+									{(themeName) => (
+										<option value={themeName}>
+											{themeName}
+										</option>
+									)}
+								</For>
+							</Select>
+						</div>
 					</FormItem>
 					<FormItem>
 						<Button

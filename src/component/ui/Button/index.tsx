@@ -6,7 +6,7 @@ export const Button: Component<
 	{
 		variant?: "text" | "contained" | "outlined"
 		round?: boolean
-	} & JSX.HTMLAttributes<HTMLButtonElement>
+    } & Parameters<typeof KButton>[0]
 > = (props) => {
 	return (
 		<>
