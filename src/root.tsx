@@ -11,6 +11,8 @@ import {
 	Scripts,
 	Title,
 } from "solid-start"
+import { Error } from "./component/Error"
+import './styles/root.css'
 
 export default function Root() {
 	return (
@@ -25,7 +27,7 @@ export default function Root() {
 			</Head>
 			<Body>
 				<Suspense>
-					<ErrorBoundary>
+                    <ErrorBoundary fallback={() => <Error />}>
 						<Routes>
 							<FileRoutes />
 						</Routes>

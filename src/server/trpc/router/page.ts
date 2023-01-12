@@ -5,10 +5,11 @@ import {
 	protectedProcedure,
 	getUserIdFromSession,
 } from "../utils"
-import dayjs from 'dayjs'
+import dayjs from "dayjs"
 import { prisma } from "../../db/client"
 import { TRPCError } from "@trpc/server"
-import { Theme, ThemeName } from "~/theme/theme"
+import type { Theme } from "~/theme/theme"
+import { ThemeName } from "~/theme/theme"
 import { transformMarkdown } from "~/lib/markdown"
 import { transformedStore } from "~/lib/transformed"
 import { themes } from "~/theme/themes"
@@ -19,7 +20,7 @@ export default router({
 			z.object({
 				content: z.string(),
 				title: z.string(),
-                theme: ThemeName,
+				theme: ThemeName,
 			})
 		)
 		.mutation(async ({ ctx, input }) => {
@@ -29,7 +30,7 @@ export default router({
 				data: {
 					content: Buffer.from(input.content),
 					title: input.title,
-                    theme: input.theme,
+					theme: input.theme,
 					userId,
 				},
 			})
@@ -46,46 +47,52 @@ export default router({
 			where: {
 				id: input,
 			},
-            select: {
-                title: true,
-                userId: true,
-                theme: true,
-                createdAt: true,
-                updatedAt: true,
-            }
+			select: {
+				title: true,
+				userId: true,
+				theme: true,
+				createdAt: true,
+				updatedAt: true,
+			},
 		})
 
-        if (!page) {
-            throw new TRPCError({
-                code: "NOT_FOUND",
-                message: "Page not found!"
-            })
-        }
+		if (!page) {
+			throw new TRPCError({
+				code: "NOT_FOUND",
+				message: "Page not found!",
+			})
+		}
 
-        const inputString = input.toString()
+		const inputString = input.toString()
 
-        let content: string = await transformedStore.get(inputString)
-        if (!content) {
-            const pageContent = (await prisma.page.findUnique({
-                where: {id: input},
-                select: {content: true}
-            }))?.content.toString() || ''
+		let content: string = await transformedStore.get(inputString)
+		if (!content) {
+			const pageContent =
+				(
+					await prisma.page.findUnique({
+						where: { id: input },
+						select: { content: true },
+					})
+				)?.content.toString() || ""
 
-            const transformed = await transformMarkdown(pageContent, page.theme as ThemeName)
+			const transformed = await transformMarkdown(
+				pageContent,
+				page.theme as ThemeName
+			)
 
-            await transformedStore.set(inputString, transformed)
-            content = transformed
-        }
+			await transformedStore.set(inputString, transformed)
+			content = transformed
+		}
 
-        const theme = Reflect.get(themes, page.theme) as Theme
-        
-        return {
-            title: page.title,
-            userId: page.userId,
-            content: content,
-            theme: theme,
-            createdAt: dayjs(page.createdAt).format('D MMM, YYYY'),
-            updatedAt: dayjs(page.updatedAt).format('D MMM, YYYY'),
-        }
+		const theme = Reflect.get(themes, page.theme) as Theme
+
+		return {
+			title: page.title,
+			userId: page.userId,
+			content: content,
+			theme: theme,
+			createdAt: dayjs(page.createdAt).format("D MMM, YYYY"),
+			updatedAt: dayjs(page.updatedAt).format("D MMM, YYYY"),
+		}
 	}),
 })

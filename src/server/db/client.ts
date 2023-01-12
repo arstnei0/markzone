@@ -8,7 +8,7 @@ declare global {
 }
 
 export const prisma =
-	global.prisma ||
+	globalThis.prisma ||
 	new PrismaClient({
 		log:
 			serverEnv.NODE_ENV === "development"
@@ -17,5 +17,5 @@ export const prisma =
 	})
 
 if (serverEnv.NODE_ENV !== "production") {
-	global.prisma = prisma
+	globalThis.prisma = prisma
 }
