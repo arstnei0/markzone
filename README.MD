@@ -1,13 +1,5 @@
-# Create JD App
+# Markzone: The best way to publish articles.
 
-This project was created using [Create JD App](https://github.com/OrJDev/create-jd-app)
+This web app is still being developed. Feel free to join me.
 
-## Deploying To Vercel
-### You Are Done
-Create a github repo and push your code to it, then deploy it to vercel (:
-  
-### Enviroment Variables
-  
-- `ENABLE_VC_BUILD`=`1` .
-- `DATABASE_URL`=`your database url` .
-
+Built with SolidStart, Solid.js, TypeScript, Prisma, tRPC, using Rehype and Remark to transform Markdown.

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { For, createSignal } from "solid-js"
+import { For, createSignal, Show, lazy, Suspense } from "solid-js"
 import { useNavigate } from "solid-start"
 import { Button } from "~/component/ui/Button"
 import { Form, FormItem } from "~/component/ui/Form"
@@ -18,6 +18,9 @@ export const [routeData, NewPagePage] = withDash(() => {
 	const [title, setTitle] = createSignal("")
 	const [theme, setTheme] = createSignal<ThemeName>("default")
 	const [pageType, setPageType] = createSignal<PageType>(PageType.Markdown)
+	const Editor = lazy(async () => ({
+		default: (await import("~/component/editor/Editor")).Editor,
+	}))
 
 	const navigate = useNavigate()
 	const newPage = trpc.page.new.useMutation({
@@ -51,11 +54,26 @@ export const [routeData, NewPagePage] = withDash(() => {
 						/>
 					</FormItem>
 					<FormItem>
-						<textarea
-							value={content()}
-							onInput={(e) => setContent((e.target as any).value)}
-							placeholder="Page Content"
-						/>
+						<Show
+							when={pageType() === PageType.Markdown}
+							fallback={
+								<Suspense>
+									<Editor
+										content={content}
+										setContent={setContent}
+									/>
+								</Suspense>
+							}
+						>
+							<textarea
+								class="page-content"
+								value={content()}
+								onInput={(e) =>
+									setContent((e.target as any).value)
+								}
+								placeholder="Page Content"
+							/>
+						</Show>
 					</FormItem>
 					<FormItem>
 						<div class="field-with-label">
@@ -85,6 +103,7 @@ export const [routeData, NewPagePage] = withDash(() => {
 									content: content(),
 									title: title(),
 									theme: theme(),
+									type: pageType(),
 								})
 							}}
 						>

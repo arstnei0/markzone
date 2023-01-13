@@ -4,3 +4,19 @@
 	justify-content: space-between;
 }
 
+textarea.page-content {
+    font-size: 1.1rem;
+    font-family: var(--sans);
+    outline: 0;
+    padding: 0.5rem;
+    width: 100%;
+    min-height: 40vh;
+    border-radius: var(--border-radius);
+    border: solid 2px var(--c-primary);
+    transition: all .3s ease;
+}
+
+textarea.page-content:focus {
+    border: solid 2px var(--c-secondary);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+}
