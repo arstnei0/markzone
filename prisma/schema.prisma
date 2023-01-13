@@ -59,8 +59,14 @@ model Page {
     createdAt DateTime @default(now())
     updatedAt DateTime @default(now())
     title       String
+    type PageType @default(Markdown)    
     content     Bytes
     theme       String
     user        User   @relation(fields: [userId], references: [id])
     userId      String
+}
+
+enum PageType {
+    Markdown
+    Html
 }

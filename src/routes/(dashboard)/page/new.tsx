@@ -10,11 +10,15 @@ import { themeNames } from "~/theme/theme"
 import { withDash } from "~/utils/dash"
 import { trpc } from "~/utils/trpc"
 import "~/styles/new.css"
+import { PageType } from "@prisma/client"
+import { ToggleButton } from "~/component/ui/ToggleButton"
 
 export const [routeData, NewPagePage] = withDash(() => {
 	const [content, setContent] = createSignal("")
 	const [title, setTitle] = createSignal("")
 	const [theme, setTheme] = createSignal<ThemeName>("default")
+	const [pageType, setPageType] = createSignal<PageType>(PageType.Markdown)
+
 	const navigate = useNavigate()
 	const newPage = trpc.page.new.useMutation({
 		onSuccess(data) {
@@ -24,7 +28,7 @@ export const [routeData, NewPagePage] = withDash(() => {
 
 	return (
 		<>
-			<div>
+			<div id="new-page">
 				<h1>Create a new page</h1>
 				<Form>
 					<FormItem>
@@ -33,6 +37,16 @@ export const [routeData, NewPagePage] = withDash(() => {
 							value={title()}
 							onChange={(e) => {
 								setTitle((e.target as any).value)
+							}}
+						/>
+					</FormItem>
+					<FormItem>
+						<ToggleButton
+							value={pageType()}
+							onChange={setPageType}
+							map={{
+								[PageType.Markdown]: <>Markdown</>,
+								[PageType.Html]: <>Rich text</>,
 							}}
 						/>
 					</FormItem>

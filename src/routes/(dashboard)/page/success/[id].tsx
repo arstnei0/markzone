@@ -3,6 +3,7 @@ import { getPageLink } from "~/lib/page"
 import { withDash } from "~/utils/dash"
 import "~/styles/success.css"
 import { Button } from "~/component/ui/Button"
+import '~/component/ui/ToggleButton/togglebutton.css'
 
 export const [routeData, SuccessPage] = withDash(() => {
 	const params = useParams()
@@ -17,6 +18,7 @@ export const [routeData, SuccessPage] = withDash(() => {
 					<a href={shareLink}>{shareLink}</a>
 				</div>
 				<br />
+                <div class="toggle-button-group">
 				<Button
 					variant="outlined"
 					onPress={() => {
@@ -33,6 +35,7 @@ export const [routeData, SuccessPage] = withDash(() => {
 				>
 					Go to the page
 				</Button>
+                </div>
 			</div>
 		</>
 	)

@@ -45,6 +45,11 @@ button.outlined {
     color: var(--c-primary-darker);
 }
 
+button.outlined:hover {
+	border: 0.1rem solid var(--c-secondary);
+    color: var(--c-secondary-darker);
+}
+
 button.contained {
     background-color: var(--c-primary);
 }

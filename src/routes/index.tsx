@@ -1,8 +1,19 @@
-import { Component } from "solid-js";
+import type { Component } from "solid-js"
+import { useNavigate } from "solid-start"
+import { Button } from "~/component/ui/Button"
 
 const Home: Component = () => {
-    throw new Error("Error")
-    return <></>
+	return (
+		<>
+			<Button
+				onClick={() => {
+					useNavigate()("/dashboard")
+				}}
+			>
+				Dashboard
+			</Button>
+		</>
+	)
 }
 
 export default Home

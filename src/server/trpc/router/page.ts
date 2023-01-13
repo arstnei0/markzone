@@ -11,8 +11,9 @@ import { TRPCError } from "@trpc/server"
 import type { Theme } from "~/theme/theme"
 import { ThemeName } from "~/theme/theme"
 import { transformMarkdown } from "~/lib/markdown"
-import { transformedStore } from "~/lib/transformed"
+import { contentStore } from "~/lib/store"
 import { themes } from "~/theme/themes"
+import { PageType } from "@prisma/client"
 
 export default router({
 	new: protectedProcedure
@@ -21,6 +22,7 @@ export default router({
 				content: z.string(),
 				title: z.string(),
 				theme: ThemeName,
+				type: z.nativeEnum(PageType).default(PageType.Markdown),
 			})
 		)
 		.mutation(async ({ ctx, input }) => {
@@ -32,6 +34,7 @@ export default router({
 					title: input.title,
 					theme: input.theme,
 					userId,
+					type: input.type,
 				},
 			})
 		}),
@@ -65,22 +68,23 @@ export default router({
 
 		const inputString = input.toString()
 
-		let content: string = await transformedStore.get(inputString)
+		let content: string = await contentStore.get(inputString)
 		if (!content) {
-			const pageContent =
-				(
-					await prisma.page.findUnique({
-						where: { id: input },
-						select: { content: true },
-					})
-				)?.content.toString() || ""
+			const pageWC = await prisma.page.findUnique({
+				where: { id: input },
+				select: { content: true, type: true },
+			})
+			const pageContent = pageWC?.content.toString() || ""
+			let transformed: string = pageContent
 
-			const transformed = await transformMarkdown(
-				pageContent,
-				page.theme as ThemeName
-			)
+			if (pageWC?.type === PageType.Markdown) {
+				transformed = await transformMarkdown(
+					pageContent,
+					page.theme as ThemeName
+				)
+			}
 
-			await transformedStore.set(inputString, transformed)
+			await contentStore.set(inputString, transformed)
 			content = transformed
 		}
 

@@ -1,9 +1,23 @@
 .page-item {
-    padding: .5rem 1rem;
-    margin: .3rem;
+    padding: .1rem .2rem;
     font-size: 1.08rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title {
+    font-size: 1.1rem;
 }
 
 #page-list {
     margin: .3rem;
+}
+
+.page-actions {
+    display: flex;
+}
+
+.page-actions > * {
+    margin: 0.08rem;
 }

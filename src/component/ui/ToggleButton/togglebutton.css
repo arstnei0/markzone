@@ -1,0 +1,15 @@
+.toggle-button-group {
+    display: flex;
+}
+
+.toggle-button-group button:first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.toggle-button-group button:last-child {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.toggle-button {
+    border-radius: 0;
+}
