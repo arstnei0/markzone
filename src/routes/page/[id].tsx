@@ -5,7 +5,7 @@ import { Link, useParams } from "solid-start"
 import { SITE_URL } from "~/config"
 import { trpc } from "~/utils/trpc"
 import "~/styles/page.css"
-import { LoadingFull } from "~lc/LoadingFull"
+import { LoadingFull } from "~/component/logic/LoadingFull"
 
 const PublicPage: Component = () => {
 	const pageId = parseInt(useParams().id)

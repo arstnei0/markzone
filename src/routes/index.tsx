@@ -6,7 +6,7 @@ const Home: Component = () => {
 	return (
 		<>
 			<Button
-				onClick={() => {
+				onPress={() => {
 					useNavigate()("/dashboard")
 				}}
 			>

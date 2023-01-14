@@ -11,7 +11,7 @@ import {
 	Scripts,
 	Title,
 } from "solid-start"
-import { Error } from "./component/Error"
+import { Error } from "~/component/logic/Error"
 import './styles/root.css'
 
 export default function Root() {
@@ -24,6 +24,17 @@ export default function Root() {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
+                <script>{`
+let mem = localStorage.getItem('m');
+if (!mem) { localStorage.setItem('m', 'l'); mem = 'l'; };
+globalThis.gtheme = mem;
+if (gtheme === "l") {
+	document.documentElement.classList.add("l");
+} else {
+	document.documentElement.classList.add("d");
+}
+                    `}
+                </script>
 			</Head>
 			<Body>
 				<Suspense>

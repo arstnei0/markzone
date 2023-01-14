@@ -5,8 +5,21 @@
 	--c-secondary: #d6f6dd;
 	--c-secondary-darker: #8fe3a1;
 	--c-secondary-lighter: #d6f6dd92;
-	--c-bg: white;
 
 	--border-radius: 0.5rem;
 	--border-radius-l: 1rem;
+}
+
+html.l {
+    --c-text: black;
+	--c-bg: white;
+    --c-bg-rgb: 255, 255, 255;
+    --c-shadow-rgb: 0, 0, 0;
+}
+
+html.d {
+    --c-text: white;
+	--c-bg: #0F0E0E;
+    --c-bg-rgb: 0, 0, 0;
+    --c-shadow-rgb: 255, 255, 255;
 }

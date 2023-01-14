@@ -1,5 +1,5 @@
 div.shadow {
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+	box-shadow: rgba(var(--c-shadow-rgb), 0.1) 0px 2px 8px;
     border-radius: var(--border-radius);
     transition: all .25s ease;
     background-color: var(--c-bg);
@@ -7,5 +7,5 @@ div.shadow {
 
 div.shadow:hover {
     filter: brightness(97%);
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+	box-shadow: rgba(var(--c-shadow-rgb), 0.2) 0px 3px 10px;
 }

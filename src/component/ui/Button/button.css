@@ -5,7 +5,7 @@ button {
 	border-radius: var(--border-radius);
 	box-shadow: rgba(0, 0, 0, 0.01) 0 1px 3px 0;
 	box-sizing: border-box;
-	color: rgba(0, 0, 0, 0.85);
+	color: var(--c-text);
 	cursor: pointer;
 	display: inline-flex;
 	font-weight: 600;
@@ -26,7 +26,7 @@ button {
 
 button:hover,
 button:focus {
-	box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+	box-shadow: rgba(var(--c-shadow-rgb), 0.1) 0 4px 12px;
     filter: brightness(90%);
 }
 
@@ -36,7 +36,7 @@ button:hover {
 
 button:active {
     filter: brightness(65%);
-	box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+	box-shadow: rgba(var(--c-shadow-rgb), 0.06) 0 2px 4px;
 	transform: translateY(-0.2);
 }
 

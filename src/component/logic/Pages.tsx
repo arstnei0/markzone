@@ -5,9 +5,9 @@ import { Show } from "solid-js"
 import { trpc } from "~/utils/trpc"
 import "./Pages.css"
 import { getFullPageLink, getPageLink } from "~/lib/page"
-import { List, ListItem } from "~ui/List"
-import { Button } from "~ui/Button"
-import { Dialog } from "~ui/Dialog"
+import { List, ListItem } from "~/component/ui/List"
+import { Button } from "~/component/ui/Button"
+import { Dialog } from "~/component/ui/Dialog"
 
 export const Pages: Component = () => {
 	const [shareDialogOpen, setShareDialogOpen] = createSignal(false)

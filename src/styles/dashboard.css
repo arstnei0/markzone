@@ -2,6 +2,12 @@
 @import "./utils.css";
 @import "./var.css";
 
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 :root {
 	--sans: "M PLUS Rounded 1c", sans-serif;
 	--serif: "Noto Serif", serif;
@@ -11,6 +17,9 @@
 body {
 	display: flex;
 	justify-content: center;
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    transition: all .3s ease;
 }
 
 * {

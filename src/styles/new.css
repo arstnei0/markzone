@@ -14,6 +14,8 @@ textarea.page-content {
     border-radius: var(--border-radius);
     border: solid 2px var(--c-primary);
     transition: all .3s ease;
+    background-color: var(--c-bg);
+    color: var(--c-text);
 }
 
 textarea.page-content:focus {

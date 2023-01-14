@@ -6,6 +6,8 @@ select {
     outline: none;
     transition: all .25s ease;
     cursor: pointer;
+    background-color: var(--c-bg);
+    color: var(--c-text);
 }
 
 select:hover {

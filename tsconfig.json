@@ -11,9 +11,7 @@
 		"types": ["solid-start/env"],
 		"baseUrl": "./",
 		"paths": {
-			"~/*": ["./src/*"],
-			"~ui/*": ["./src/component/ui/*"],
-			"~lc/*": ["./src/component/logic/*"]
+			"~/*": ["./src/*"]
 		}
 	}
 }

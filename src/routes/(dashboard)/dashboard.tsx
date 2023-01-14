@@ -1,4 +1,4 @@
-import { Dashboard } from "~lc/Dashboard"
+import { Dashboard } from "~/component/logic/Dashboard"
 import { withDash } from "~/utils/dash"
 
 export const [routeData, DashboardPage] = withDash((props) => {
