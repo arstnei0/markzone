@@ -1,4 +1,4 @@
-import { Component, For, JSX } from "solid-js"
+import type { Component, JSX } from "solid-js"
 import { Shadow } from "../Shadow"
 import "./list.css"
 

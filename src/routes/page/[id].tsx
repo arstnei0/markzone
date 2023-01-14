@@ -5,8 +5,7 @@ import { Link, useParams } from "solid-start"
 import { SITE_URL } from "~/config"
 import { trpc } from "~/utils/trpc"
 import "~/styles/page.css"
-import { Loading } from "~/component/Loading"
-import { LoadingFull } from "~/component/LoadingFull"
+import { LoadingFull } from "~lc/LoadingFull"
 
 const PublicPage: Component = () => {
 	const pageId = parseInt(useParams().id)
@@ -52,7 +51,7 @@ const PublicPage: Component = () => {
 					</>
 				}
 			>
-                <LoadingFull />
+				<LoadingFull />
 			</Show>
 		</>
 	)

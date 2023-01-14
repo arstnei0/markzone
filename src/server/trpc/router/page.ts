@@ -38,6 +38,23 @@ export default router({
 				},
 			})
 		}),
+	delete: protectedProcedure
+		.input(z.number())
+		.mutation(async ({ input, ctx }) => {
+            const userId = await getUserIdFromSession(ctx.session)
+            if ((await prisma.page.findUnique({ where: {id: input}, select: {userId: true}}))?.userId !== userId) {
+                throw new TRPCError({
+                    code: "FORBIDDEN",
+                    message: "You don't have access to this page!"
+                })
+            }
+
+			return await prisma.page.delete({
+				where: {
+                    id: input,
+                },
+			})
+		}),
 	all: protectedProcedure.query(async ({ ctx }) => {
 		return prisma.page.findMany({
 			where: {

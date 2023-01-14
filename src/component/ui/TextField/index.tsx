@@ -1,13 +1,12 @@
-import type { Component, JSX } from "solid-js";
-import { createMemo } from "solid-js"
-import { splitProps } from "solid-js"
+import type { Component, JSX } from "solid-js"
+import { createMemo, splitProps } from "solid-js"
 import "./textfield.css"
 
 export const TextField: Component<
 	{
 		label?: string
 		id?: string
-        value?: any
+		value?: string
 	} & JSX.HTMLAttributes<HTMLInputElement>
 > = (props) => {
 	const [local, other] = splitProps(props, ["id", "label"])

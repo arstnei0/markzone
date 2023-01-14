@@ -2,17 +2,20 @@ import type { Session } from "@auth/core/types"
 import { getSession } from "@auth/solid-start"
 import type { Component } from "solid-js"
 import { Show } from "solid-js"
+import type { RouteDataFunc } from "solid-start"
 import { useRouteData } from "solid-start"
 import { createServerData$, redirect } from "solid-start/server"
 import { authOpts } from "../routes/api/auth/[...solidauth]"
 
-export function protectedRoute(Page: Component<{ session: Session }>) {
+export function protectedRoute(
+	Page: Component<{ session: Session }>
+): [RouteDataFunc, Componnet] {
 	const routeData = () => {
 		return createServerData$(
 			async (_, { request }) => {
 				const session = await getSession(request, authOpts)
 				if (!session || !session.user) {
-                    throw redirect("/auth/login")
+					throw redirect("/auth/login")
 				}
 				return session
 			},

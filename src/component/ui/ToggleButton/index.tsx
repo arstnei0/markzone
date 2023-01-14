@@ -16,7 +16,7 @@ export function ToggleButton<
 							classList={{
 								"toggle-button": true,
 							}}
-                            variant={val === props.value ? 'contained' : 'text'}
+							variant={val === props.value ? "contained" : "text"}
 							onClick={() => {
 								props.onChange(val)
 							}}

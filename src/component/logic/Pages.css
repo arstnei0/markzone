@@ -21,3 +21,7 @@
 .page-actions > * {
     margin: 0.08rem;
 }
+
+.share-buttons > * {
+    margin: .1rem;
+}

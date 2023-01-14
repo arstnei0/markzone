@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Accessor, Component, Setter } from "solid-js"
-import { createEffect, onMount } from "solid-js"
+import { createEffect } from "solid-js"
 import { isServer } from "solid-js/web"
 
 declare global {
@@ -26,7 +27,8 @@ export const Editor: Component<{
 	let editorEl: any
 
 	if (!isServer) {
-		;(globalThis as any).editorChange = (e: any) => {
+        const g = globalThis as any
+		g.editorChange = () => {
 			props.setContent(editorEl.value)
 		}
 
